@@ -14,4 +14,9 @@ data <- subset(data, Date >= as.Date("2007-02-01") & Date <= as.Date("2007-02-02
 # Combine date and time into one datetime object
 data$DateTime <- strptime(paste(data$Date, data$Time), format="%Y-%m-%d %H:%M:%S")
 
+source("load_data.R")
 
+png("plot1.png", width=480, height=480)
+hist(data$Global_active_power, col="red", 
+     xlab="Global Active Power (kilowatts)", main="Global Active Power")
+dev.off()
